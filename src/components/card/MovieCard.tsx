@@ -20,13 +20,11 @@ export function MovieCard({ movie }: { movie: Movie }) {
   return (
     <Card className="w-full py-0 overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
       <CardHeader className="p-0">
-        {/* <div className="relative w-full h-full"> */}
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
-          className="object-cover object-top hover:scale-110 transition-shadow"
+          className="object-cover object-top hover:scale-110 ease-out duration-500"
         />
-        {/* </div> */}
       </CardHeader>
       <CardContent className="p-6">
         <div className="flex justify-between items-start">
@@ -50,7 +48,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
       </CardContent>
       <CardFooter className="flex justify-between p-6 pt-0 md:flex-row flex-col gap-2">
         <Link to={`/movies/${movie.id}`} className="w-full">
-          <Button className="w-full">Details</Button>
+          <Button className="cursor-pointer w-full">Details</Button>
         </Link>
       </CardFooter>
     </Card>

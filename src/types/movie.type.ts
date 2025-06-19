@@ -10,7 +10,14 @@ export type GenreType = {
   name: string;
 };
 
-export interface MovieData {
+export type PaginationType<T> = {
+  page: number;
+  results: T[];
+  total_pages: number;
+  total_results: number;
+};
+
+export type MovieData = {
   id: number;
   title: string;
   overview: string;
@@ -22,4 +29,6 @@ export interface MovieData {
   runtime: number;
   genres: GenreType[];
   production_companies: CompanyType[];
-}
+};
+
+export interface MovieResponse extends PaginationType<MovieData> {}
