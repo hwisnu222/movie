@@ -44,7 +44,6 @@ export default function Movies() {
     ],
     onSuccess: ({ data }: { data: MovieResponse }) => {
       setMovies(data);
-      console.log(data);
     },
   });
 

@@ -32,7 +32,10 @@ export function Pagination(props: PaginatioProps) {
       setPage(props.page + 1);
       return;
     } else {
-      setPage(props.page);
+      setPage(props.page - 1);
+      if (page === sequence - SEQUENCE_LIMIT) {
+        setSequence((prev) => prev - SEQUENCE_LIMIT);
+      }
     }
   };
 
@@ -45,9 +48,12 @@ export function Pagination(props: PaginatioProps) {
   return (
     <PaginationParent className="my-8">
       <PaginationContent>
-        <PaginationItem className="cursor-pointer">
-          <PaginationPrevious onClick={() => changePagination("")} />
-        </PaginationItem>
+        {page > 1 && (
+          <PaginationItem className="cursor-pointer">
+            <PaginationPrevious onClick={() => changePagination("")} />
+          </PaginationItem>
+        )}
+
         {sequences(sequence).map((item: number, index: number) => (
           <PaginationItem key={index}>
             <PaginationLink
